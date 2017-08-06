@@ -1,0 +1,12 @@
+button{
+    cursor: pointer;
+}
+
+h1 > button{
+    margin-left: .5rem;
+}
+
+#messages{
+    height: 25rem;
+    overflow-y: scroll;
+}
