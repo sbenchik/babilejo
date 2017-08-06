@@ -1,4 +1,4 @@
-#Babilejo
+# Babilejo
 
 Babilejo is a chat application that allows users to chat in multiple languages. It does this by using [Google Translate](https://www.npmjs.com/package/google-translate-api) to translate all incoming messages into the user's preferred language.
 Currently supported languages are:
