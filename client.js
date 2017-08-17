@@ -51,7 +51,7 @@ if (socket !== undefined) {
             for (let i = 0; i < data.length; i++) {
                 fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${selectedLang}&dt=t&q=${encodeURI(data[i].message)}`)
                     .then((response) => response.json())
-                    .then(trans => {
+                    .then((trans) => {
                         // Fill out message div
                         const newMessage = document.createElement('div');
                         newMessage.setAttribute('class', 'chat-message');

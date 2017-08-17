@@ -38,29 +38,14 @@ mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
             if (name === '' || message === '') {
                 sendStatus('Please enter a valid name and message');
             } else {
-                // // Translate message
-                // translate(message, { to: 'en' }).then(res => {
-                //     message = res.text;
-                // }).catch(err => {
-                //     console.error(err);
-                // }).then(() => {
-                //     const newChat = { name: name, message: message };
-                //     chat.insert(newChat, () => {
-                //         client.emit('output', [newChat]);
-                //         sendStatus({
-                //             message: 'Message Sent',
-                //             clear: true,
-                //         });
-                //     });
-                // })
-                    const newChat = { name: name, message: message };
-                    chat.insert(newChat, () => {
-                        client.emit('output', [newChat]);
-                        sendStatus({
-                            message: 'Message Sent',
-                            clear: true,
-                        });
+                const newChat = { name: name, message: message };
+                chat.insert(newChat, () => {
+                    client.emit('output', [newChat]);
+                    sendStatus({
+                        message: 'Message Sent',
+                        clear: true,
                     });
+                });
             }
         });
         // Handle clear
