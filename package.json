@@ -9,9 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^14.4.0",
     "dompurify": "^0.9.0",
-    "google-translate-api": "^2.3.0",
     "jsdom": "^11.1.0",
     "mongodb": "^2.2.30",
     "socket.io": "^2.0.3"

@@ -2,7 +2,6 @@ const mongo = require('mongodb').MongoClient;
 const client = require('socket.io').listen(4000).sockets;
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
-const translate = require('google-translate-api');
 
 // Set up sanitizer
 const window = (new JSDOM('')).window;
