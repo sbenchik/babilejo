@@ -1,5 +1,24 @@
+body{
+    overflow-y: hidden;
+}
+
+#particles-js{
+    background: #397BCE;
+    height: 100%;
+}
+
+.container{
+    position: absolute;
+    left: 15rem;
+    top: 2rem;
+}
+
 button{
     cursor: pointer;
+}
+
+h1 {
+    color: white;
 }
 
 h1 > button{

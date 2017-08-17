@@ -12,39 +12,49 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2 col-sm-12">
-                <h1 class="text-center">
-                    Babilejo
-                    <button id="clear" class="btn btn-danger">Clear</button>
-                </h1>
-                <br>
-                <div id="status"></div>
-                <div id="chat">
-                    <input type="text" id="username" class="form-control" placeholder="Enter Username">
+    <div id="particles-js">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 col-sm-12">
+                    <h1 class="text-center">
+                        Babilejo
+                        <button id="clear" class="btn btn-danger">Clear</button>
+                    </h1>
                     <br>
-                    <div class="card">
-                        <div id="messages" class="card-block">
+                    <div id="status"></div>
+                    <div id="chat">
+                        <input type="text" id="username" class="form-control" placeholder="Enter Username">
+                        <br>
+                        <div class="card">
+                            <div id="messages" class="card-block">
 
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <textarea class="form-control" id="textarea" placeholder="Enter message"></textarea>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control" name="" id="lang-menu">
-                            </select>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="textarea" placeholder="Enter message"></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="" id="lang-menu">
+                                    </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+<script src="client.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+    particlesJS.load('particles-js', 'particles.json', () => {
+        console.log('Particles loaded!');
+    });
+
     const langs = {
         'af': 'Afrikaans',
         'sq': 'Albanian',
@@ -160,6 +170,4 @@
 
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
-<script src="client.js"></script>
 </html>
