@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MongoChat</title>
+    <title>Babilejo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2 col-sm-12">
                 <h1 class="text-center">
-                    MongoChat
+                    Babilejo
                     <button id="clear" class="btn btn-danger">Clear</button>
                 </h1>
                 <br>
@@ -157,8 +157,9 @@
     Object.keys(langs).map((code) => {
         select.options.add(new Option(langs[code], code));
     });
+
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
 <script src="client.js"></script>
-
 </html>
