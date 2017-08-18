@@ -1,7 +1,24 @@
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const client = require('socket.io').listen(server);
+
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io').listen(4000).sockets;
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
+
+// Set up HTTP server and socket.io
+const PORT = process.env.PORT || 8080;
+
+app.use(express.static(__dirname + '/public'));
+
+server.listen(PORT, () => {
+    console.log(`Listening on ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
 
 // Set up sanitizer
 const window = (new JSDOM('')).window;
@@ -13,7 +30,7 @@ mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
     console.log('MongoDB connected...');
 
     //Connect to socket.io
-    client.on('connection', (socket) => {
+    client.sockets.on('connection', (socket) => {
         let chat = db.collection('chats');
 
         // Create function to send status
