@@ -9,6 +9,7 @@ const { JSDOM } = require('jsdom');
 
 // Set up HTTP server and socket.io
 const PORT = process.env.PORT || 8080;
+console.log(process.env.PORT);
 
 app.use(express.static(__dirname + '/public'));
 
