@@ -30,7 +30,7 @@ const setStatus = (s) => {
 }
 
 // Connect to socket.io
-const socket = io.connect('http://127.0.0.1:8080');
+const socket = io.connect('https://babilejo.herokuapp.com');
 
 // Uses the trick from https://ctrlq.org/code/19909-google-translate-api
 const translate = (sourceLang, targetLang, sourceText) => {

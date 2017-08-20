@@ -25,7 +25,7 @@ const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
 // Connect to MongoDB
-mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
+mongo.connect(`mongodb://127.0.0.1/mongochat`, (err, db) => {
     if (err) throw err;
     console.log('MongoDB connected...');
 
