@@ -1,8 +1,6 @@
 const express = require('express');
 const http = require('http');
-const socketIO = require('socket.io')({
-    transports: ["websocket"],
-});
+const socketIO = require('socket.io');
 
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
