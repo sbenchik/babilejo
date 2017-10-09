@@ -1,6 +1,8 @@
 const express = require('express');
 const http = require('http');
-const socketIO = require('socket.io');
+const socketIO = require('socket.io')({
+    transports: ["xhr-polling"],
+});
 
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
