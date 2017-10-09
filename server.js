@@ -1,7 +1,6 @@
 const express = require('express');
-const app = express();
-const server = require('http').createServer(app);
-const client = require('socket.io').listen(server);
+const http = require('http');
+const socketIO = require('socket.io');
 
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
@@ -9,22 +8,26 @@ const { JSDOM } = require('jsdom');
 // Set up HTTP server and socket.io
 const PORT = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/public'));
+const app = express();
 
-server.listen(PORT, () => {
-    console.log(`Listening on ${PORT}`);
-});
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
+
+const server = http.createServer(app);
+
+server.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const io = socketIO.listen(server);
 
 // Set up sanitizer
 const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
 //Connect to socket.io
-client.sockets.on('connection', (socket) => {
+io.sockets.on('connection', (socket) => {
     
     // Create function to send status
     const sendStatus = (s) => {
@@ -43,7 +46,7 @@ client.sockets.on('connection', (socket) => {
             sendStatus('Please enter a valid name and message');
         } else {
             const newChat = { name: name, message: message };
-            client.emit('output', [newChat]);
+            io.emit('output', [newChat]);
             sendStatus({
                 clear: true,
             });
